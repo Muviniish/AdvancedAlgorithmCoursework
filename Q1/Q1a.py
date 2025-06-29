@@ -7,7 +7,10 @@ def folding_technique(integer):
 
 def main():
     integer = input("Enter your IC number: ")
-    print(folding_technique(integer))
+    if len(integer)<12:
+        print("Invalid input. Please enter your 12-digits IC number ")
+    else:
+        print(folding_technique(integer))
     
 if __name__ == '__main__':
     main()

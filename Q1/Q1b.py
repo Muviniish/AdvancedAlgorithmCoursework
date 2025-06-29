@@ -85,6 +85,7 @@ def main():
     avr1 = sum(count1)/round
     avr2 = sum(count2)/round
     hash1.display_hash()
+    hash2.display_hash()
     print("\nHash table with size 1009")
     for i in range(round):
         print(f"Total collisions for round {i+1}: {count1[i]}")
