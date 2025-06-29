@@ -1,6 +1,5 @@
 from datetime import timedelta, datetime
 import random
-import collections
 
 def generate_random_birthdate():
     start_date = datetime(1940, 1, 1)
@@ -92,7 +91,7 @@ def main():
     print("\nHash table with size 2003")
     for i in range(round):
         print(f"Total collisions for round {i+1}: {count2[i]}")
-    print(f"Average collision for hash table with size 1009 is {avr1}")
+    print(f"\nAverage collision for hash table with size 1009 is {avr1}")
     print(f"Average collision for hash table with size 2003 is {avr2}")
 
 if __name__=="__main__":
