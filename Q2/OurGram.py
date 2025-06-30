@@ -4,13 +4,16 @@ from Person import Person
 class OurGram:
 
     my_graph = None
+    max_profiles = 10
 
     def __init__(self):
         self.my_graph = UDGraph()
+        self.profile_count = 0
 
     def add_new_profile(self, name, privacy, biography):
         person = Person(name, privacy, biography)
         self.my_graph.addVertex(person)
+        self.profile_count += 1
         return person
     
     def add_follow(self, follower, following):
@@ -154,17 +157,21 @@ def opt5():
     print("=======================================")
     print("Add User Profile:")
     print("=======================================")
-    name = str(input("Please enter user name: "))
-    while True:
-        privacy = str(input("Please select your privacy (P - protected || U - unprotected): "))
-        if privacy.upper()=='U':
-            break
-        elif privacy.upper()=='P':
-            break
-    biography = str(input("Please enter your biography: "))
-    gram.add_new_profile(name, privacy, biography)
-    print(f"{name} has been added")
-    mainMenu()
+    if gram.profile_count >= OurGram.max_profiles:
+        print("Sorry, you can't add more users. Maximum profile limit (10) reached.")
+        mainMenu()
+    else:
+        name = str(input("Please enter user name: "))
+        while True:
+            privacy = str(input("Please select your privacy (P - protected || U - unprotected): "))
+            if privacy.upper()=='U':
+                break
+            elif privacy.upper()=='P':
+                break
+        biography = str(input("Please enter your biography: "))
+        gram.add_new_profile(name, privacy, biography)
+        print(f"{name} has been added")
+        mainMenu()
 
 def opt6():
     print("=======================================")
