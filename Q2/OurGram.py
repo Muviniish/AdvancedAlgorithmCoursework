@@ -119,13 +119,7 @@ def opt1():
     print("View All Profile Names:")
     print("=======================================")
     gram.display_all_profile()
-    while True:
-        yesno = str(input("Do you wish to continue (Y - yes || N - no): "))
-        if yesno.upper() == 'Y':
-            mainMenu()
-            break
-        elif yesno.upper() == 'N':
-            break
+    mainMenu()
 
 def opt2():
     print("=======================================")
@@ -134,13 +128,7 @@ def opt2():
     gram.display_all_profile()
     view = int(input("Select whose profile to view : "))
     gram.display_profile(view)
-    while True:
-        yesno = str(input("Do you wish to continue (Y - yes || N - no): "))
-        if yesno.upper() == 'Y':
-            mainMenu()
-            break
-        elif yesno.upper() == 'N':
-            break
+    mainMenu()
     
 def opt3():
     print("=======================================")
@@ -150,13 +138,7 @@ def opt3():
     view = int(input("Select whose profile to view: "))
     person = list(gram.my_graph.get_vertices())[view-1]
     gram.display_followers(person)
-    while True:
-        yesno = str(input("Do you wish to continue (Y - yes || N - no): "))
-        if yesno.upper() == 'Y':
-            mainMenu()
-            break
-        elif yesno.upper() == 'N':
-            break
+    mainMenu()
 
 def opt4():
     print("=======================================")
@@ -166,13 +148,7 @@ def opt4():
     view = int(input("Select whose profile to view: "))
     person = list(gram.my_graph.get_vertices())[view-1]
     gram.display_following(person)
-    while True:
-        yesno = str(input("Do you wish to continue (Y - yes || N - no): "))
-        if yesno.upper() == 'Y':
-            mainMenu()
-            break
-        elif yesno.upper() == 'N':
-            break
+    mainMenu()
 
 def opt5():
     print("=======================================")
@@ -187,13 +163,8 @@ def opt5():
             break
     biography = str(input("Please enter your biography: "))
     gram.add_new_profile(name, privacy, biography)
-    while True:
-        yesno = str(input("Do you wish to continue (Y - yes || N - no): "))
-        if yesno.upper() == 'Y':
-            mainMenu()
-            break
-        elif yesno.upper() == 'N':
-            break
+    print(f"{name} has been added")
+    mainMenu()
 
 def opt6():
     print("=======================================")
@@ -206,14 +177,8 @@ def opt6():
     to_profile = int(input("Select the profile you wish to follow: "))
     person2 = list(gram.my_graph.get_vertices())[to_profile-1]
     gram.add_follow(person1, person2)
-    
-    while True:
-        yesno = str(input("Do you wish to continue (Y - yes || N - no): "))
-        if yesno.upper() == 'Y':
-            mainMenu()
-            break
-        elif yesno.upper() == 'N':
-            break
+    print(f"{person2.getName()} Followed")
+    mainMenu()
 
 def opt7():
     print("=======================================")
@@ -226,14 +191,8 @@ def opt7():
     to_profile = int(input("Select the profile you wish to unfollow: "))
     person2 = list(gram.my_graph.get_vertices())[to_profile-1]
     gram.remove_follow(person1, person2)
-    
-    while True:
-        yesno = str(input("Do you wish to continue (Y - yes || N - no): "))
-        if yesno.upper() == 'Y':
-            mainMenu()
-            break
-        elif yesno.upper() == 'N':
-            break
+    print(f"{person2.getName()} Unfollowed")
+    mainMenu()
 
 if __name__=="__main__":
     main()
